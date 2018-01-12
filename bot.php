@@ -11,6 +11,10 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		if($event['source']=='user'){
 			$user_id = $event['source']['userId'];
+			
+			if(empty($user_id)){
+				$user_id = 'None '
+			}
 		}
 		
 		// Reply only when message sent is in 'text' format
