@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 
 			// Build message to reply back
 			
-			if($event['message']['text'] == 'ชื่ออะไร'){
+			if($event['message']['text'] == 'Name'){
 				$messages = [
 					'type' => 'text',
 					'text' => 'วีรชิต ศรีมุข'
