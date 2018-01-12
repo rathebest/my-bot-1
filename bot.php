@@ -29,13 +29,13 @@ if (!is_null($events['events'])) {
 			if($event['message']['text'] == 'Name' || $event['message']['text'] == 'ข้อมูลสินเชื่อ' ){
 				$messages = [
 					'type' => 'text',
-					'text' => $user_id .' วีรชิต ศรีมุข'
+					'text' =>' วีรชิต ศรีมุข'
 					];
 			}
 			else{
 				$messages = [
 					'type' => 'text',
-					'text' => $user_id . ' ' . $text
+					'text' => $text
 				];
 			}
 			
