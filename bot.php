@@ -1,4 +1,7 @@
 <?php
+
+
+	
 $access_token = 'fiAMHL0DOTlugChoT/1bTrhvrYT0YYAzdQlfgrlGXSA9ikf22lSN8xbYz7cKOSUpHgcedlVG4X/q4ErlYb1aLhu4oNeyy5Pyj4JHK/uX63abpbebuQrLqKWX3IV+xUKlN0JU6IfTY2bx1q00y6lg6QdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -27,6 +30,23 @@ if (!is_null($events['events'])) {
 
 			// Build message to reply back
 			
+			switch ($event['message']['text']) {
+			    case 'Name', 'ข้อมูลสินเชื่อ':
+				$messages = [
+					'type' => 'text',
+					'text' =>' วีรชิต ศรีมุข'
+					];
+				break;
+			    
+			    case 'mid':
+				break;
+			    default:
+				$messages = [
+					'type' => 'text',
+					'text' => $text
+				];
+			} 
+			/*
 			if($event['message']['text'] == 'Name' || $event['message']['text'] == 'ข้อมูลสินเชื่อ' ){
 				$messages = [
 					'type' => 'text',
@@ -39,7 +59,7 @@ if (!is_null($events['events'])) {
 					'text' => $text
 				];
 			}
-			
+			*/
 			
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -50,7 +70,17 @@ if (!is_null($events['events'])) {
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
+			
+			/*
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, "http://www.myDomain.com/hello.php");
+			curl_setopt($ch, CURLOPT_HEADER, 0);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true)
+			$output = curl_exec($ch);
+			curl_close($ch);
+			echo "<pre>$output</pre>";
+			*/
+			
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -59,7 +89,7 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-
+			
 			echo $result . "\r\n";
 		}
 	}
