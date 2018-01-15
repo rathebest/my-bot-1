@@ -31,7 +31,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			
 			switch ($event['message']['text']) {
-			    case 'Name', 'ข้อมูลสินเชื่อ':
+			    case 'Name'||'ข้อมูลสินเชื่อ':
 				$messages = [
 					'type' => 'text',
 					'text' =>' วีรชิต ศรีมุข'
