@@ -12,7 +12,7 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
-		/*
+		
 		if($event['source']=='user'){
 			$user_id = $event['source']['userId'];
 			
@@ -20,7 +20,7 @@ if (!is_null($events['events'])) {
 				$user_id = 'None '
 			}
 		}
-		*/
+		
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 			    case 'Name' :
 				$messages = [
 					'type' => 'text',
-					'text' =>' วีรชิต ศรีมุข'
+					'text' =>' วีรชิต ศรีมุข'. $user_id
 					];
 				break;
 			    
