@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 			    case 'Name' :
 				$messages = [
 					'type' => 'text',
-					'text' =>' วีรชิต ศรีมุข'. $user_id
+					'text' =>' วีรชิต ศรีมุข' 
 					];
 				break;
 			    
